@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "preinstall": "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash;export NVM_DIR=\"$HOME/.nvm\"; \\. \"$NVM_DIR/nvm.sh\"; unset npm_config_prefix; nvm install 18",
+    "start": "vite --port 3000 --host",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
