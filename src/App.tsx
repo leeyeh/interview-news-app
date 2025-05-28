@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="App">
       <div>
-        <h1>Recent News</h1>
+        <h1>Latest News</h1>
         <NewsList list={NEWS_DATA} />
         <h1>Most Viewed News</h1>
         <NewsList list={NEWS_DATA} />
