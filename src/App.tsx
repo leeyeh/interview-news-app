@@ -1,21 +1,18 @@
+import React from "react";
+
 import "./App.css";
 
 import { relativeTime } from "./relative-time-format.ts";
-import NEWS_DATA from "./news-data.ts";
+import NEWS_DATA, {type News} from "./news-data.ts";
 
-interface News {
-  title: string;
-  time: number;
-}
-
-const News = ({ news }: { news: News }) => {
+const News = React.memo(({ news }: { news: News }) => {
   return (
     <div>
       <h2>{news.title}</h2>
       <span>{relativeTime(news.time)}</span>
     </div>
   );
-};
+});
 
 const NewsList = ({ list }: { list: News[] }) => {
   return list.map((news) => <News key={news.title} news={news} />);
