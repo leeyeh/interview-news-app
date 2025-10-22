@@ -2,14 +2,19 @@ import React from "react";
 
 import "./App.css";
 
-import { relativeTime } from "./relative-time-format.ts";
+import { useRelativeTime } from "./relative-time-context";
 import NEWS_DATA, {type News} from "./news-data.ts";
 
 const News = React.memo(({ news }: { news: News }) => {
+  // useRelativeTime now accepts the target date and returns the formatted
+  // relative time string; it also subscribes to the shared tick so this
+  // component updates automatically.
+  const formatted = useRelativeTime(news.time);
+
   return (
     <div>
       <h2>{news.title}</h2>
-      <span>{relativeTime(news.time)}</span>
+      <span>{formatted}</span>
     </div>
   );
 });
